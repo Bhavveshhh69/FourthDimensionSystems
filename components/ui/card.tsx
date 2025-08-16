@@ -1,6 +1,5 @@
 
 import * as React from "react"
-import { motion } from "framer-motion/client"
 import { cn } from "@/lib/utils"
 
 const Card = React.forwardRef<
@@ -29,15 +28,9 @@ const Card = React.forwardRef<
 
   if (animate) {
     return (
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        viewport={{ once: true }}
-        whileHover={{ y: -4 }}
-      >
+      <div className="animate-fade-in-up hover:translate-y-[-4px] transition-transform duration-300">
         {cardContent}
-      </motion.div>
+      </div>
     )
   }
 
