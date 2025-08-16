@@ -1,149 +1,200 @@
+
+'use client'
+
+import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
-import { Shield, Cpu, Smartphone, BarChart3, Users, Trophy, Zap, ArrowRight, Star } from "lucide-react"
+import { Card } from "@/components/ui/card"
+import { ChevronRight, Sparkles, Zap, Shield, Brain } from "lucide-react"
 
 export function HeroSection() {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.1,
+      },
+    },
+  }
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut",
+      },
+    },
+  }
+
+  const floatingVariants = {
+    float: {
+      y: [-10, 10, -10],
+      transition: {
+        duration: 6,
+        repeat: Infinity,
+        ease: "easeInOut",
+      },
+    },
+  }
+
   return (
-    <section id="home" className="relative pt-16 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 via-white to-red-50/20"></div>
-      <div className="absolute top-20 left-10 w-72 h-72 bg-blue-100/20 rounded-full blur-3xl animate-pulse"></div>
-      <div className="absolute bottom-20 right-10 w-96 h-96 bg-red-100/15 rounded-full blur-3xl animate-pulse delay-1000"></div>
-
-      <div className="max-w-7xl mx-auto relative z-10">
-        <div className="text-center">
-          <div className="inline-flex items-center bg-gradient-to-r from-blue-600 to-red-600 text-white px-6 py-2 rounded-full text-sm font-medium mb-6 shadow-lg">
-            <Star className="w-4 h-4 mr-2" />
-            30+ Years of Innovation Excellence
-          </div>
-
-          <h1 className="text-5xl md:text-7xl font-serif font-bold bg-gradient-to-r from-gray-900 via-blue-800 to-red-700 bg-clip-text text-transparent mb-8 leading-tight">
-            Fourth Dimension Electronic Systems
-          </h1>
-
-          <p className="text-2xl md:text-3xl font-medium text-blue-700 mb-6">
-            Pioneering AI-Powered Security & Digital Transformation Excellence
-          </p>
-
-          <p className="text-lg text-gray-600 mb-12 max-w-4xl mx-auto leading-relaxed">
-            Three decades of security innovation meets cutting-edge artificial intelligence. We transform enterprises
-            across India with revolutionary security systems, intelligent automation, and next-generation digital
-            solutions trusted by government agencies, defense organizations, and Fortune 500 companies.
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-6 justify-center mb-20">
-            <Button
-              size="lg"
-              className="text-lg px-10 py-4 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 group"
-            >
-              Explore Solutions
-              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </Button>
-            <Button
-              variant="outline"
-              size="lg"
-              className="text-lg px-10 py-4 border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 bg-transparent"
-            >
-              Contact Us
-            </Button>
-          </div>
-
-          <div className="bg-gradient-to-r from-blue-600 to-blue-800 rounded-3xl p-10 mb-20 shadow-2xl transform hover:scale-105 transition-all duration-500">
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-              <div className="text-center group">
-                <div className="text-5xl md:text-6xl font-bold text-white mb-3 group-hover:scale-110 transition-transform duration-300">
-                  30+
-                </div>
-                <div className="text-blue-100 font-medium">Years of Excellence</div>
-              </div>
-              <div className="text-center group">
-                <div className="text-5xl md:text-6xl font-bold text-white mb-3 group-hover:scale-110 transition-transform duration-300">
-                  500+
-                </div>
-                <div className="text-blue-100 font-medium">Projects Delivered</div>
-              </div>
-              <div className="text-center group">
-                <div className="text-5xl md:text-6xl font-bold text-white mb-3 group-hover:scale-110 transition-transform duration-300">
-                  7
-                </div>
-                <div className="text-blue-100 font-medium">States Covered</div>
-              </div>
-              <div className="text-center group">
-                <div className="text-5xl md:text-6xl font-bold text-white mb-3 group-hover:scale-110 transition-transform duration-300">
-                  99.9%
-                </div>
-                <div className="text-blue-100 font-medium">System Uptime</div>
-              </div>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-20">
-            <div className="bg-white p-8 rounded-2xl border border-gray-200 text-center hover:shadow-2xl transition-all duration-500 group transform hover:-translate-y-2 hover:border-blue-300">
-              <div className="bg-gradient-to-br from-blue-500 to-blue-600 p-4 rounded-2xl inline-block mb-6 group-hover:scale-110 transition-transform duration-300">
-                <Shield className="h-12 w-12 text-white" />
-              </div>
-              <h3 className="font-serif font-bold text-xl mb-4 text-gray-800">Advanced Security</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Military-grade turnstiles, AI-powered CCTV, biometric access control with 99.7% accuracy
-              </p>
-            </div>
-
-            <div className="bg-white p-8 rounded-2xl border border-gray-200 text-center hover:shadow-2xl transition-all duration-500 group transform hover:-translate-y-2 hover:border-red-300">
-              <div className="bg-gradient-to-br from-red-500 to-red-600 p-4 rounded-2xl inline-block mb-6 group-hover:scale-110 transition-transform duration-300">
-                <Cpu className="h-12 w-12 text-white" />
-              </div>
-              <h3 className="font-serif font-bold text-xl mb-4 text-gray-800">AI Intelligence</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Predictive analytics, behavioral detection, automated threat response with machine learning
-              </p>
-            </div>
-
-            <div className="bg-white p-8 rounded-2xl border border-gray-200 text-center hover:shadow-2xl transition-all duration-500 group transform hover:-translate-y-2 hover:border-blue-300">
-              <div className="bg-gradient-to-br from-blue-500 to-blue-600 p-4 rounded-2xl inline-block mb-6 group-hover:scale-110 transition-transform duration-300">
-                <Smartphone className="h-12 w-12 text-white" />
-              </div>
-              <h3 className="font-serif font-bold text-xl mb-4 text-gray-800">Mobile Innovation</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Cross-platform apps, real-time dashboards, offline-first architecture with seamless sync
-              </p>
-            </div>
-
-            <div className="bg-white p-8 rounded-2xl border border-gray-200 text-center hover:shadow-2xl transition-all duration-500 group transform hover:-translate-y-2 hover:border-red-300">
-              <div className="bg-gradient-to-br from-red-500 to-red-600 p-4 rounded-2xl inline-block mb-6 group-hover:scale-110 transition-transform duration-300">
-                <BarChart3 className="h-12 w-12 text-white" />
-              </div>
-              <h3 className="font-serif font-bold text-xl mb-4 text-gray-800">Enterprise Software</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Custom applications, cloud integration, scalable architectures with microservices
-              </p>
-            </div>
-          </div>
-
-          <div className="mt-24 pt-16 border-t border-gray-200">
-            <h3 className="text-2xl font-serif font-bold mb-12 text-gray-700">
-              Trusted by Leading Organizations Across India
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-              <div className="flex flex-col items-center space-y-4 group">
-                <div className="bg-gradient-to-br from-blue-500 to-blue-600 p-4 rounded-2xl group-hover:scale-110 transition-transform duration-300">
-                  <Users className="h-8 w-8 text-white" />
-                </div>
-                <span className="text-gray-700 font-medium text-lg">Government Agencies</span>
-              </div>
-              <div className="flex flex-col items-center space-y-4 group">
-                <div className="bg-gradient-to-br from-red-500 to-red-600 p-4 rounded-2xl group-hover:scale-110 transition-transform duration-300">
-                  <Trophy className="h-8 w-8 text-white" />
-                </div>
-                <span className="text-gray-700 font-medium text-lg">Defense Organizations</span>
-              </div>
-              <div className="flex flex-col items-center space-y-4 group">
-                <div className="bg-gradient-to-br from-blue-500 to-blue-600 p-4 rounded-2xl group-hover:scale-110 transition-transform duration-300">
-                  <Zap className="h-8 w-8 text-white" />
-                </div>
-                <span className="text-gray-700 font-medium text-lg">Fortune 500 Companies</span>
-              </div>
-            </div>
-          </div>
-        </div>
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-background via-background to-muted/30">
+      {/* Animated background elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <motion.div
+          className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-full blur-3xl"
+          animate={{
+            scale: [1, 1.2, 1],
+            opacity: [0.3, 0.5, 0.3],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+        <motion.div
+          className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-br from-secondary/10 to-primary/10 rounded-full blur-3xl"
+          animate={{
+            scale: [1.2, 1, 1.2],
+            opacity: [0.2, 0.4, 0.2],
+          }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
       </div>
+
+      <div className="container px-4 sm:px-6 lg:px-8 relative z-10">
+        <motion.div
+          className="max-w-5xl mx-auto text-center"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          {/* Badge */}
+          <motion.div variants={itemVariants} className="mb-8">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-primary/10 to-secondary/10 border border-primary/20 backdrop-blur-sm">
+              <Sparkles className="w-4 h-4 text-primary" />
+              <span className="text-sm font-medium text-gradient">
+                AI-Powered Digital Transformation
+              </span>
+              <Sparkles className="w-4 h-4 text-secondary" />
+            </div>
+          </motion.div>
+
+          {/* Main heading */}
+          <motion.h1
+            variants={itemVariants}
+            className="text-4xl sm:text-6xl lg:text-7xl font-bold mb-6 leading-tight"
+          >
+            <span className="text-gradient">Future-Ready</span>
+            <br />
+            <span className="text-foreground">Technology Solutions</span>
+          </motion.h1>
+
+          {/* Subheading */}
+          <motion.p
+            variants={itemVariants}
+            className="text-lg sm:text-xl lg:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed"
+          >
+            Transforming businesses with cutting-edge AI, advanced security systems,
+            and intelligent automation. Where innovation meets reliability.
+          </motion.p>
+
+          {/* CTA Buttons */}
+          <motion.div
+            variants={itemVariants}
+            className="flex flex-col sm:flex-row gap-4 justify-center mb-16"
+          >
+            <Button variant="gradient" size="xl" className="group">
+              Explore Solutions
+              <motion.div
+                animate={{ x: [0, 4, 0] }}
+                transition={{ duration: 1.5, repeat: Infinity }}
+              >
+                <ChevronRight className="w-5 h-5" />
+              </motion.div>
+            </Button>
+            <Button variant="outline" size="xl" className="hover:border-primary/50">
+              View Case Studies
+            </Button>
+          </motion.div>
+
+          {/* Feature cards */}
+          <motion.div
+            variants={itemVariants}
+            className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto"
+          >
+            <motion.div variants={floatingVariants} animate="float">
+              <Card variant="glass" className="p-6 hover:border-primary/30 transition-colors duration-300">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="p-2 rounded-lg bg-primary/10">
+                    <Brain className="w-6 h-6 text-primary" />
+                  </div>
+                  <h3 className="font-semibold">AI Intelligence</h3>
+                </div>
+                <p className="text-sm text-muted-foreground">
+                  Advanced machine learning and computer vision solutions
+                </p>
+              </Card>
+            </motion.div>
+
+            <motion.div
+              variants={floatingVariants}
+              animate="float"
+              transition={{ delay: 0.2 }}
+            >
+              <Card variant="glass" className="p-6 hover:border-secondary/30 transition-colors duration-300">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="p-2 rounded-lg bg-secondary/10">
+                    <Shield className="w-6 h-6 text-secondary" />
+                  </div>
+                  <h3 className="font-semibold">Security Systems</h3>
+                </div>
+                <p className="text-sm text-muted-foreground">
+                  Next-generation security and surveillance technology
+                </p>
+              </Card>
+            </motion.div>
+
+            <motion.div
+              variants={floatingVariants}
+              animate="float"
+              transition={{ delay: 0.4 }}
+            >
+              <Card variant="glass" className="p-6 hover:border-primary/30 transition-colors duration-300">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="p-2 rounded-lg bg-gradient-to-br from-primary/10 to-secondary/10">
+                    <Zap className="w-6 h-6 text-gradient" />
+                  </div>
+                  <h3 className="font-semibold">Smart Automation</h3>
+                </div>
+                <p className="text-sm text-muted-foreground">
+                  Intelligent process automation and digital transformation
+                </p>
+              </Card>
+            </motion.div>
+          </motion.div>
+        </motion.div>
+      </div>
+
+      {/* Scroll indicator */}
+      <motion.div
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+        animate={{ y: [0, 8, 0] }}
+        transition={{ duration: 2, repeat: Infinity }}
+      >
+        <div className="w-6 h-10 border-2 border-muted-foreground/30 rounded-full flex justify-center">
+          <div className="w-1 h-3 bg-gradient-to-b from-primary to-secondary rounded-full mt-2" />
+        </div>
+      </motion.div>
     </section>
   )
 }

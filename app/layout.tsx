@@ -1,24 +1,26 @@
+
 import type React from "react"
 import type { Metadata } from "next"
-import { Work_Sans, Open_Sans } from "next/font/google"
+import { Inter, JetBrains_Mono } from "next/font/google"
 import "./globals.css"
+import { ThemeProvider } from "@/components/theme-provider"
 
-const workSans = Work_Sans({
+const inter = Inter({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-work-sans",
+  variable: "--font-inter",
 })
 
-const openSans = Open_Sans({
+const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-open-sans",
+  variable: "--font-jetbrains-mono",
 })
 
 export const metadata: Metadata = {
-  title: "Fourth Dimension Electronic Systems | Security & AI Solutions",
+  title: "Fourth Dimension Systems | AI-Powered Digital Transformation",
   description:
-    "Leading provider of security systems, AI-powered digital transformation, and enterprise software solutions. 30+ years of expertise serving government and enterprise clients.",
+    "Leading provider of AI-powered security systems, digital transformation, and enterprise software solutions. Modern technology for the future.",
   generator: "v0.app",
 }
 
@@ -28,8 +30,17 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${workSans.variable} ${openSans.variable} antialiased`}>
-      <body className="font-sans">{children}</body>
+    <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable} antialiased`} suppressHydrationWarning>
+      <body className="font-sans">
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange={false}
+        >
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   )
 }
