@@ -1,9 +1,9 @@
-
 'use client'
 
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { ChevronRight, Sparkles, Zap, Shield, Brain } from "lucide-react"
+import { motion } from "framer-motion"
 
 export function HeroSection() {
   return (
@@ -25,7 +25,7 @@ export function HeroSection() {
               </span>
               <Sparkles className="w-4 h-4 text-secondary" />
             </div>
-          </motion.div>
+          </div>
 
           {/* Main heading */}
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold mb-6 leading-tight animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
@@ -67,7 +67,7 @@ export function HeroSection() {
                   Advanced machine learning and computer vision solutions
                 </p>
               </Card>
-            </motion.div>
+            </div>
 
             <div className="animate-float" style={{ animationDelay: '0.2s' }}>
               <Card variant="glass" className="p-6 hover:border-secondary/30 transition-colors duration-300">

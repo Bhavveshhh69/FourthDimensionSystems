@@ -1,10 +1,10 @@
-
 import * as React from "react"
 import { cn } from "@/lib/utils"
+import { motion } from "framer-motion"
 
 const Card = React.forwardRef<
   HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement> & { 
+  React.HTMLAttributes<HTMLDivElement> & {
     variant?: "default" | "glass" | "gradient-border" | "elevated"
     animate?: boolean
   }
@@ -28,9 +28,14 @@ const Card = React.forwardRef<
 
   if (animate) {
     return (
-      <div className="animate-fade-in-up hover:translate-y-[-4px] transition-transform duration-300">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="w-full"
+      >
         {cardContent}
-      </div>
+      </motion.div>
     )
   }
 
