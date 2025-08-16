@@ -1,6 +1,5 @@
 import * as React from "react"
 import { cn } from "@/lib/utils"
-import { motion } from "framer-motion"
 
 const Card = React.forwardRef<
   HTMLDivElement,
@@ -28,14 +27,9 @@ const Card = React.forwardRef<
 
   if (animate) {
     return (
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="w-full"
-      >
+      <div className="animate-fade-in-up">
         {cardContent}
-      </motion.div>
+      </div>
     )
   }
 

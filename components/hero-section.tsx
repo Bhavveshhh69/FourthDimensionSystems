@@ -3,7 +3,6 @@
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { ChevronRight, Sparkles, Zap, Shield, Brain } from "lucide-react"
-import { motion } from "framer-motion"
 
 export function HeroSection() {
   return (
