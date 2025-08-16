@@ -1,7 +1,7 @@
 
 'use client'
 
-import { motion } from "framer-motion"
+import { motion } from "framer-motion/client"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { ChevronRight, Sparkles, Zap, Shield, Brain } from "lucide-react"
